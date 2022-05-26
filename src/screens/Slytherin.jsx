@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Gryffindor() {
+export default function Slytherin() {
     return (
         <View>
-            <Text>Gryffindor</Text>
+            <Text>Slytherin</Text>
         </View>
     )
 }

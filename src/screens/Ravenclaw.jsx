@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Characters() {
+export default function Ravenclaw() {
     return (
         <View>
-            <Text>Personajes </Text>
+            <Text>Ravenclaw</Text>
         </View>
     )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function Gryffindor() {
+export default function Hufflepuff() {
     return (
         <View>
-            <Text>Gryffindor</Text>
+            <Text>Hufflepuff</Text>
         </View>
     )
 }
