@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native'
 export default function HeaderPersonajes() {
     return (
         <View style={styles.container}>
-            <Text style={styles.textHeader}>Profesores de hogwarts</Text>
-            <ImageBackground style={styles.icon} source={require('../../images/harry.png')} />
+            <Text style={styles.textHeader}>Profesores de Hogwarts</Text>
+            <ImageBackground style={styles.icon} source={require('../../images/inicio.png')} />
         </View>
     )
 }
@@ -16,17 +16,24 @@ const styles = StyleSheet.create({
         height: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
     },
 
     icon: {
-        width: 66,
+        width: 97,
         height: '100%',
-        paddingBottom: 4
+        paddingBottom: 8,
+
     },
 
     textHeader: {
         fontSize: 17,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#e3e3e3'
     }
 })
+
+
+// width: 66,
+// height: '100%',
+// paddingBottom: 4

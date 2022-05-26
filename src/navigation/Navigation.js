@@ -24,7 +24,7 @@ export default function Navigation() {
             drawerContent={(props) => <MenuItems {...props} />}
         >
             <Drawer.Screen name="home" component={Home} />
-            <Drawer.Screen name="personajes" component={Personajes} options={{ title: 'Home', headerStyle: { backgroundColor: '#bfc3cd' }, headerTitle: (props) => <HeaderPersonajes /> }} />
+            <Drawer.Screen name="personajes" component={Personajes} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPersonajes /> }} />
             <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} />
             <Drawer.Screen name="gryffindor" component={Gryffindor} />
             <Drawer.Screen name="hufflepuff" component={Hufflepuff} />
