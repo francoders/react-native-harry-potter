@@ -20,13 +20,9 @@ export default function Hechizos() {
                         <ImageBackground source={ImagenBg} key={hechizos.id} style={styles.container} >
 
                             <View style={styles.card} >
-                                <Text style={styles.textId}>ID: {hechizos.id}</Text>
-
-                                <Text style={styles.textCard}>Hechizo:</Text>
-                                <Text style={styles.textCard}>{hechizos.hechizo}</Text>
-
-                                <Text style={styles.textCard}>USO:</Text>
-                                <Text style={styles.textCard}>{hechizos.uso}</Text>
+                                <Text style={styles.textId}>Numero {hechizos.id}</Text>
+                                <Text style={styles.textContent}><Text style={styles.title}>Hechizo: </Text>{hechizos.hechizo}</Text>
+                                <Text style={styles.textContent}><Text style={styles.title}>USO: </Text>{hechizos.uso}</Text>
                             </View>
 
                         </ImageBackground>
@@ -38,7 +34,7 @@ export default function Hechizos() {
 }
 
 const styles = StyleSheet.create({
-    container: { 
+    container: {
         resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center'
@@ -47,6 +43,7 @@ const styles = StyleSheet.create({
     card: {
         width: '90%',
         marginTop: 20,
+        padding: 20,
         borderRadius: 20,
         backgroundColor: '#212b34',
     },
@@ -55,5 +52,16 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
         fontWeight: 'bold'
+    },
+
+    textContent: {
+        color: 'white',
+        fontSize: 15,
+        fontWeight: '300'
+    },
+
+    title: {
+        fontWeight: 'bold',
+        color: 'white'
     }
 })

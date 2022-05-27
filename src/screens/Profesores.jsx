@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, SafeAreaView, Text, ScrollView, Image, StyleSheet } from 'react-native'
 
-export default function Personajes() {
+export default function Profesores() {
 
     const [data, setData] = useState();
 
@@ -29,7 +29,7 @@ export default function Personajes() {
                                     <Text style={styles.textStyle}>{staff.name}</Text>
 
                                     <Text style={styles.textTitle}>Alternate Name:</Text>
-                                    <Text style={styles.textContent}>{staff.alternate_names}</Text>
+                                    <Text style={styles.textContent}>{(staff.alternate_names).length ? staff.alternate_names : <Text>No tiene</Text>} </Text>
 
                                     <Text style={styles.textTitle}>House:</Text>
                                     <Text style={styles.textContent}>{staff.house}</Text>
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginTop: 20,
         marginBottom: 5,
-        textAlign: 'center',
     },
 
     textTitle: {
@@ -135,4 +134,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         marginStart: 10
     },
+
+    bar:{
+        color: 'green'
+    }
 })

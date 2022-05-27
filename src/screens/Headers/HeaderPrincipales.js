@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground } from 'react-native'
 
-export default function HeaderPersonajes() {
+export default function HeaderPrincipales() {
     return (
         <View style={styles.container}>
-            <Text style={styles.textHeader}>Profesores de Hogwarts</Text>
-            <ImageBackground style={styles.icon} source={require('../../images/inicio.png')} />
+            <Text style={styles.textHeader}>Personajes Principales</Text>
+            <ImageBackground style={styles.icon} source={require('../../images/harry.png')} />
         </View>
     )
 }
@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
     },
 
     icon: {
-        width: 97,
+        width: 66,
         height: '100%',
-        paddingBottom: 8,
+        marginBottom: 4,
 
     },
 
@@ -32,8 +32,3 @@ const styles = StyleSheet.create({
         color: '#e3e3e3'
     }
 })
-
-
-// width: 66,
-// height: '100%',
-// paddingBottom: 4

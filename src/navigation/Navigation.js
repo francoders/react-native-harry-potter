@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import Home from '../screens/Home';
-import Personajes from '../screens/Personajes';
+import Profesores from '../screens/Profesores';
 import PersonajesPrincipales from '../screens/PersonajesPrincipales';
 import Gryffindor from '../screens/Gryffindor';
 import Hufflepuff from '../screens/Hufflepuff';
@@ -10,7 +10,8 @@ import Ravenclaw from '../screens/Ravenclaw';
 import Slytherin from '../screens/Slytherin';
 import Hechizoss from '../screens/Hechizos';
 
-import HeaderPersonajes from '../screens/Headers/HeaderPersonajes';
+import HeaderProfesores from '../screens/Headers/HeaderProfesores';
+import HeaderPrincipales from '../screens/Headers/HeaderPrincipales';
 
 import ButtonMenu from '../../components/ButtonMenu';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -20,12 +21,12 @@ const Drawer = createDrawerNavigator();
 export default function Navigation() {
     return (
         <Drawer.Navigator
-            initialRouteName='hechizos'
+            initialRouteName='personajes'
             drawerContent={(props) => <MenuItems {...props} />}
         >
             <Drawer.Screen name="home" component={Home} />
-            <Drawer.Screen name="personajes" component={Personajes} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPersonajes /> }} />
-            <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} />
+            <Drawer.Screen name="profesores" component={Profesores} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderProfesores /> }} />
+            <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPrincipales /> }} />
             <Drawer.Screen name="gryffindor" component={Gryffindor} />
             <Drawer.Screen name="hufflepuff" component={Hufflepuff} />
             <Drawer.Screen name="ravenclaw" component={Ravenclaw} />
@@ -46,7 +47,7 @@ const MenuItems = ({ navigation }) => {
 
                 <Text style={styles.textContent} >Personajes</Text>
                 <ButtonMenu icon={require('../images/harry.png')} text="Personajes Principales" onPress={() => navigation.navigate('personajesPrincipales')} />
-                <ButtonMenu icon={require('../images/personajes.png')} text="Profesores de Hogwarts" onPress={() => navigation.navigate('personajes')} />
+                <ButtonMenu icon={require('../images/personajes.png')} text="Profesores de Hogwarts" onPress={() => navigation.navigate('profesores')} />
                 <View style={styles.line} />
 
                 <Text style={styles.textContent} >Casas</Text>
