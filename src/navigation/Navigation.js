@@ -20,7 +20,7 @@ const Drawer = createDrawerNavigator();
 export default function Navigation() {
     return (
         <Drawer.Navigator
-            initialRouteName='personajes'
+            initialRouteName='hechizos'
             drawerContent={(props) => <MenuItems {...props} />}
         >
             <Drawer.Screen name="home" component={Home} />
@@ -30,7 +30,7 @@ export default function Navigation() {
             <Drawer.Screen name="hufflepuff" component={Hufflepuff} />
             <Drawer.Screen name="ravenclaw" component={Ravenclaw} />
             <Drawer.Screen name="slytherin" component={Slytherin} />
-            <Drawer.Screen name="hechizos" component={Hechizoss} />
+            <Drawer.Screen name="hechizos" component={Hechizoss} options={{ drawerLabelStyle: { color: 'white' }, title: 'Todos los Hechizos', headerStyle: { backgroundColor: '#111' }, headerTintColor: '#d9f5ff' }} />
         </Drawer.Navigator>
     )
 }
