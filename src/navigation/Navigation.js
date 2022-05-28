@@ -10,28 +10,34 @@ import Ravenclaw from '../screens/Ravenclaw';
 import Slytherin from '../screens/Slytherin';
 import Hechizoss from '../screens/Hechizos';
 
-import HeaderProfesores from '../screens/Headers/HeaderProfesores';
 import HeaderPrincipales from '../screens/Headers/HeaderPrincipales';
+import HeaderProfesores from '../screens/Headers/HeaderProfesores';
+import HeaderGryffindor from '../screens/Headers/HeaderGryffindor';
+import HeaderSlytherin from '../screens/Headers/HeaderSlytherin';
+import HeaderHufflepuff from '../screens/Headers/HeaderHufflepuff';
+import HeaderRavenclaw from '../screens/Headers/HeaderRavenclaw';
 
 import ButtonMenu from '../../components/ButtonMenu';
 import { LinearGradient } from 'expo-linear-gradient';
+
+
 
 const Drawer = createDrawerNavigator();
 
 export default function Navigation() {
     return (
         <Drawer.Navigator
-            initialRouteName='personajes'
+            initialRouteName='personajesPrincipales'
             drawerContent={(props) => <MenuItems {...props} />}
         >
             <Drawer.Screen name="home" component={Home} />
-            <Drawer.Screen name="profesores" component={Profesores} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderProfesores /> }} />
-            <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} options={{ title: 'Home', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPrincipales /> }} />
-            <Drawer.Screen name="gryffindor" component={Gryffindor} />
-            <Drawer.Screen name="hufflepuff" component={Hufflepuff} />
-            <Drawer.Screen name="ravenclaw" component={Ravenclaw} />
-            <Drawer.Screen name="slytherin" component={Slytherin} />
-            <Drawer.Screen name="hechizos" component={Hechizoss} options={{ drawerLabelStyle: { color: 'white' }, title: 'Todos los Hechizos', headerStyle: { backgroundColor: '#111' }, headerTintColor: '#d9f5ff' }} />
+            <Drawer.Screen name="profesores" component={Profesores} options={{ headerTintColor: '#fff', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderProfesores /> }} />
+            <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} options={{ headerTintColor: '#fff', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPrincipales /> }} />
+            <Drawer.Screen name="gryffindor" component={Gryffindor} options={{ headerTintColor: '#FFC500', headerStyle: { backgroundColor: '#6e2626' }, headerTitle: (props) => <HeaderGryffindor /> }} />
+            <Drawer.Screen name="hufflepuff" component={Hufflepuff} options={{ headerTintColor: '#ffc500', headerStyle: { backgroundColor: '#111' }, headerTitle: (props) => <HeaderHufflepuff /> }} />
+            <Drawer.Screen name="ravenclaw" component={Ravenclaw} options={{ headerTintColor: '#d4d4d4', headerStyle: { backgroundColor: '#075387' }, headerTitle: (props) => <HeaderRavenclaw /> }} />
+            <Drawer.Screen name="slytherin" component={Slytherin} options={{ headerTintColor: '#d4d4d4', headerStyle: { backgroundColor: '#123C3A' }, headerTitle: (props) => <HeaderSlytherin /> }} />
+            <Drawer.Screen name="hechizos" component={Hechizoss} options={{ headerTintColor: '#fff', drawerLabelStyle: { color: 'white' }, title: 'Todos los Hechizos', headerStyle: { backgroundColor: '#111' }, headerTintColor: '#d9f5ff' }} />
         </Drawer.Navigator>
     )
 }

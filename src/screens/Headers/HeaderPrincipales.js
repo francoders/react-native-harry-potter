@@ -12,7 +12,7 @@ export default function HeaderPrincipales() {
 
 const styles = StyleSheet.create({
     container: {
-        width: 300,
+        width: '100%',
         height: '100%',
         flexDirection: 'row',
         alignItems: 'center',
@@ -20,10 +20,8 @@ const styles = StyleSheet.create({
     },
 
     icon: {
-        width: 66,
-        height: '100%',
-        marginBottom: 4,
-
+        width: 58,
+        height: '92%',
     },
 
     textHeader: {

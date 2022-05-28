@@ -6,7 +6,7 @@ export default function PersonajesPrincipales() {
     const [data, setData] = useState();
 
     useEffect(() => {
-        fetch('http://hp-api.herokuapp.com/api/characters/house/gryffindor')
+        fetch('https://harry-potter-api-production.up.railway.app/personajes')
             .then(respuesta => respuesta.json())
             .then(e => setData(e));
     }, []);
@@ -14,29 +14,27 @@ export default function PersonajesPrincipales() {
     return (
         <SafeAreaView>
             <ScrollView>
-                {data?.map((gryffindor) => {
+                {data?.map((personajes) => {
                     return (
-                        <View key={gryffindor.id} style={styles.container} >
+                        <View key={personajes.id} style={styles.container} >
                             <View style={styles.content}>
                                 <View style={styles.card1}>
-                                    <Image style={styles.mrs} source={gryffindor.image ? { uri: gryffindor.image } : null} />
+                                    <Image style={styles.mrs} source={personajes.imagen ? { uri: personajes.imagen } : null} />
 
                                     <Text style={styles.textTitleImg}>Actor:</Text>
-                                    <Text style={styles.textContentImg}>{gryffindor.actor}</Text>
+                                    <Text style={styles.textContentImg}>{personajes.interpretado_por}</Text>
                                 </View>
                                 <View style={styles.card2}>
-                                    <Text style={styles.textStyle}>{gryffindor.name}</Text>
+                                    <Text style={styles.textStyle}>{personajes.personaje}</Text>
 
-                                    <Text style={styles.textTitle}>Alternate Name:</Text>
-                                    <Text style={styles.textContent}>{(gryffindor.alternate_names).length ? gryffindor.alternate_names : <Text>No tiene</Text>}</Text>
+                                    <Text style={styles.textTitle}>Apodo:</Text>
+                                    <Text style={styles.textContent}>{personajes.apodo}</Text>
 
-                                    <Text style={styles.textTitle}>House:</Text>
-                                    <Text style={styles.textContent}>{gryffindor.house}</Text>
+                                    <Text style={styles.textTitle}>Casa:</Text>
+                                    <Text style={styles.textContent}>{personajes.casaDeHogwarts}</Text>
 
-                                    <Text style={styles.textTitle}>Specie:</Text>
-                                    <Text style={styles.textContent}>{gryffindor.species}</Text>
-
-                                    <Text style={styles.textTitle}>{gryffindor.alive ? <Text style={styles.live} >Live</Text> : <Text style={styles.dead}>Dead</Text>}</Text>
+                                    <Text style={styles.textTitle}>Hijos: {personajes.hijos.length}</Text>
+                                    <Text style={styles.textTitle}>{personajes.hijos.length ? "" + personajes.hijos : <Text>No tienen Hijos</Text>}</Text>
 
                                 </View>
                             </View>
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
     },
 
     content: {
-        width: 330,
+        width: '85%',
         height: 300,
         marginTop: 20,
         margin: 20,
@@ -75,16 +73,16 @@ const styles = StyleSheet.create({
     },
 
     card1: {
-        width: 150
+        width: '44%'
     },
 
     card2: {
-        width: 200,
+        width: '50%',
         paddingHorizontal: 20
     },
 
     mrs: {
-        width: 150,
+        width: '100%',
         height: 220,
         borderBottomRightRadius: 30,
         borderTopLeftRadius: 30
