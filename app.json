@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "HarryPotter",
+    "name": "Harry Potter",
     "slug": "HarryPotter",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/harry.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -28,6 +28,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "In process... Harry Potter application consuming an api",
+    "githubUrl": "https://github.com/francorvalant/harry-potter-react-native"
   }
 }

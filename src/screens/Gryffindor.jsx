@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image } from 'react-native'
+import ImageBlurLoading from 'react-native-image-blur-loading'
 
 export default function Gryffindor() {
 
@@ -12,39 +13,50 @@ export default function Gryffindor() {
     }, []);
 
     return (
-        <SafeAreaView>
-            <ScrollView>
-                {data?.map((gryffindor) => {
-                    return (
-                        <View key={gryffindor.name} style={styles.container} >
-                            <View style={styles.content}>
-                                <View style={styles.card1}>
-                                    <Image style={styles.mrs} source={gryffindor.image ? { uri: gryffindor.image } : null} />
 
-                                    <Text style={styles.textTitleImg}>Actor:</Text>
-                                    <Text style={styles.textContentImg}>{gryffindor.actor}</Text>
-                                </View>
-                                <View style={styles.card2}>
-                                    <Text style={styles.textStyle}>{gryffindor.name}</Text>
+        <View style={{ flex: 1 }}>
+            <ImageBlurLoading
+                thumbnailSource={{ uri: 'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy-preview.gif' }}
+                source={{ uri: 'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy-preview.gif' }}
+                style={{ flex: 1, width: undefined, height: undefined, resizeMode: 'contain' }}
+            />
 
-                                    <Text style={styles.textTitle}>Alternate Name:</Text>
-                                    <Text style={styles.textContent}>{(gryffindor.alternate_names).length ? gryffindor.alternate_names : <Text>No tiene</Text>}</Text>
+            <SafeAreaView>
+                <ScrollView>
+                    {data?.map((gryffindor) => {
+                        return (
+                            <View key={gryffindor.name} style={styles.container} >
+                                <View style={styles.content}>
+                                    <View style={styles.card1}>
+                                        <Image style={styles.mrs} source={gryffindor.image ? { uri: gryffindor.image } : null} />
 
-                                    <Text style={styles.textTitle}>House:</Text>
-                                    <Text style={styles.textContent}>{gryffindor.house}</Text>
+                                        <Text style={styles.textTitleImg}>Actor:</Text>
+                                        <Text style={styles.textContentImg}>{gryffindor.actor}</Text>
+                                    </View>
+                                    <View style={styles.card2}>
+                                        <Text style={styles.textStyle}>{gryffindor.name}</Text>
 
-                                    <Text style={styles.textTitle}>Specie:</Text>
-                                    <Text style={styles.textContent}>{gryffindor.species}</Text>
+                                        <Text style={styles.textTitle}>Alternate Name:</Text>
+                                        <Text style={styles.textContent}>{(gryffindor.alternate_names).length ? gryffindor.alternate_names : <Text>No tiene</Text>}</Text>
 
-                                    <Text style={styles.textTitle}>{gryffindor.alive ? <Text style={styles.live} >Live</Text> : <Text style={styles.dead}>Dead</Text>}</Text>
+                                        <Text style={styles.textTitle}>House:</Text>
+                                        <Text style={styles.textContent}>{gryffindor.house}</Text>
 
+                                        <Text style={styles.textTitle}>Specie:</Text>
+                                        <Text style={styles.textContent}>{gryffindor.species}</Text>
+
+                                        <Text style={styles.textTitle}>{gryffindor.alive ? <Text style={styles.live} >Live</Text> : <Text style={styles.dead}>Dead</Text>}</Text>
+
+                                    </View>
                                 </View>
                             </View>
-                        </View>
-                    )
-                })}
-            </ScrollView>
-        </SafeAreaView>
+                        )
+                    })}
+                </ScrollView>
+            </SafeAreaView>
+
+        </View>
+
     )
 }
 

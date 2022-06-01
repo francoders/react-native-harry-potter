@@ -1,10 +1,144 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image } from 'react-native'
+import ImageBlurLoading from 'react-native-image-blur-loading'
 
 export default function Hufflepuff() {
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        fetch('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
+            .then(respuesta => respuesta.json())
+            .then(e => setData(e));
+    }, []);
+
     return (
-        <View>
-            <Text>Hufflepuff</Text>
+        <View style={{ flex: 1 }}>
+            <ImageBlurLoading
+                thumbnailSource={{ uri: 'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy-preview.gif' }}
+                source={{ uri: 'https://i.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy-preview.gif' }}
+                style={{ flex: 1, width: undefined, height: undefined, resizeMode: 'contain' }}
+            />
+
+            <SafeAreaView>
+                <ScrollView>
+                    {data?.map((Hufflepuff) => {
+                        return (
+                            <View key={Hufflepuff.id} style={styles.container} >
+                                <View style={styles.content}>
+                                    <View style={styles.card1}>
+                                        <Image style={styles.mrs} source={Hufflepuff.image ? { uri: Hufflepuff.image } : null} />
+
+                                        <Text style={styles.textTitleImg}>Actor:</Text>
+                                        <Text style={styles.textContentImg}>{Hufflepuff.actor}</Text>
+                                    </View>
+                                    <View style={styles.card2}>
+                                        <Text style={styles.textStyle}>{Hufflepuff.name}</Text>
+
+                                        <Text style={styles.textTitle}>Alternate Name:</Text>
+                                        <Text style={styles.textContent}>{(Hufflepuff.alternate_names).length ? Hufflepuff.alternate_names : <Text>No tiene</Text>}</Text>
+
+                                        <Text style={styles.textTitle}>House:</Text>
+                                        <Text style={styles.textContent}>{Hufflepuff.house}</Text>
+
+                                        <Text style={styles.textTitle}>Specie:</Text>
+                                        <Text style={styles.textContent}>{Hufflepuff.species}</Text>
+
+                                        <Text style={styles.textTitle}>{Hufflepuff.alive ? <Text style={styles.live} >Live</Text> : <Text style={styles.dead}>Dead</Text>}</Text>
+
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    })}
+                </ScrollView>
+            </SafeAreaView>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#191A19'
+    },
+
+    content: {
+        width: '85%',
+        height: 285,
+        marginTop: 20,
+        margin: 5,
+        borderRadius: 30,
+        backgroundColor: '#212221',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        display: 'flex',
+        flexDirection: 'row'
+    },
+
+    card1: {
+        width: 150
+    },
+
+    card2: {
+        width: 200,
+        paddingHorizontal: 20
+    },
+
+    mrs: {
+        width: 150,
+        height: 220,
+        borderBottomRightRadius: 30,
+        borderTopLeftRadius: 30
+    },
+
+    textStyle: {
+        color: '#e6e6e6',
+        fontWeight: 'bold',
+        fontSize: 15,
+        marginTop: 20,
+        marginBottom: 5,
+    },
+
+    textTitle: {
+        color: '#e6e6e6',
+        fontWeight: 'bold',
+        fontSize: 14,
+        marginTop: 10,
+    },
+
+    textContent: {
+        color: '#e6e6e6',
+        fontWeight: '300',
+        fontSize: 14
+    },
+
+    live: {
+        color: 'green'
+    },
+
+    dead: {
+        color: 'red'
+    },
+
+    textTitleImg: {
+        color: '#e6e6e6',
+        fontWeight: 'bold',
+        fontSize: 14,
+        marginTop: 10,
+        marginStart: 10
+    },
+
+    textContentImg: {
+        color: '#e6e6e6',
+        fontWeight: '300',
+        fontSize: 14,
+        marginStart: 10
+    },
+})

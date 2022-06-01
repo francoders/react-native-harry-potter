@@ -13,7 +13,7 @@ export default function ButtonMenu({ text, icon, onPress }) {
 const styles = StyleSheet.create({
     btn: {
         backgroundColor: '#145e88',
-        marginBottom: 8,
+        marginBottom: 10,
         padding: 8,
         borderRadius: 10,
         flexDirection: 'row',

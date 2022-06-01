@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
-import Home from '../screens/Home';
 import Profesores from '../screens/Profesores';
 import PersonajesPrincipales from '../screens/PersonajesPrincipales';
 import Gryffindor from '../screens/Gryffindor';
@@ -30,9 +29,8 @@ export default function Navigation() {
             initialRouteName='personajesPrincipales'
             drawerContent={(props) => <MenuItems {...props} />}
         >
-            <Drawer.Screen name="home" component={Home} />
-            <Drawer.Screen name="profesores" component={Profesores} options={{ headerTintColor: '#fff', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderProfesores /> }} />
             <Drawer.Screen name="personajesPrincipales" component={PersonajesPrincipales} options={{ headerTintColor: '#fff', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderPrincipales /> }} />
+            <Drawer.Screen name="profesores" component={Profesores} options={{ headerTintColor: '#fff', headerStyle: { backgroundColor: '#46244C' }, headerTitle: (props) => <HeaderProfesores /> }} />
             <Drawer.Screen name="gryffindor" component={Gryffindor} options={{ headerTintColor: '#FFC500', headerStyle: { backgroundColor: '#6e2626' }, headerTitle: (props) => <HeaderGryffindor /> }} />
             <Drawer.Screen name="hufflepuff" component={Hufflepuff} options={{ headerTintColor: '#ffc500', headerStyle: { backgroundColor: '#111' }, headerTitle: (props) => <HeaderHufflepuff /> }} />
             <Drawer.Screen name="ravenclaw" component={Ravenclaw} options={{ headerTintColor: '#d4d4d4', headerStyle: { backgroundColor: '#075387' }, headerTitle: (props) => <HeaderRavenclaw /> }} />
@@ -47,10 +45,6 @@ const MenuItems = ({ navigation }) => {
         <LinearGradient style={styles.containerGradient} colors={['#1b294d', '#212121']}>
 
             <DrawerContentScrollView style={styles.container}>
-                <Text style={styles.textContent} >Menu de Inicio</Text>
-                <ButtonMenu icon={require('../images/inicio.png')} text="Inicio" onPress={() => navigation.navigate('home')} />
-                <View style={styles.line} />
-
                 <Text style={styles.textContent} >Personajes</Text>
                 <ButtonMenu icon={require('../images/harry.png')} text="Personajes Principales" onPress={() => navigation.navigate('personajesPrincipales')} />
                 <ButtonMenu icon={require('../images/personajes.png')} text="Profesores de Hogwarts" onPress={() => navigation.navigate('profesores')} />
@@ -65,7 +59,9 @@ const MenuItems = ({ navigation }) => {
 
                 <Text style={styles.textContent} >Hechizos</Text>
                 <ButtonMenu icon={require('../images/hechizo.png')} text="Todos los Hechizos" onPress={() => navigation.navigate('hechizos')} />
+
             </DrawerContentScrollView>
+            <Text style={styles.textCredit} >V1.0.0</Text>
 
         </LinearGradient>
 
@@ -74,7 +70,7 @@ const MenuItems = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     containerGradient: {
-        height: '100%'
+        height: '100%',
     },
 
     textGradient: {
@@ -88,7 +84,8 @@ const styles = StyleSheet.create({
 
     textContent: {
         fontSize: 20,
-        marginBottom: 6,
+        marginBottom: 18,
+        marginTop: 5,
         fontWeight: 'bold',
         color: '#d9f5ff',
     },
@@ -99,5 +96,11 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginTop: 5,
         backgroundColor: '#666'
+    },
+
+    textCredit: {
+        color: '#d9f5ff',
+        fontSize: 10,
+        margin: 10
     }
 })
