@@ -47,4 +47,6 @@ yarn add @react-navigation/drawer
 ```
 
 * [API-Harry-Potter-ING](https://hp-api.herokuapp.com/): Harry Potter API containing students, teachers and houses `ingles`
-* [API-Harry-Potter-ES](https://harry-potter-api-production.up.railway.app/): Harry Potter API containing students, teachers and houses `español`
+* [API-Harry-Potter-ES](https://harry-potter-api-production.up.railway.app/): Harry Potter API containing spells, information, characters and books `español`
+
+
