@@ -36,17 +36,47 @@ npm install yarn
 
 ## Resources
 
-* [React-Navigation](https://reactnavigation.org/docs/getting-started/): transition between screens using react-navigation · version: `6.x`
+* [react-navigation](https://reactnavigation.org/docs/getting-started/): transition between screens using react-navigation · version: `6.x`
 ```
 yarn add @react-navigation/native
 ```
 
-* [Drawer-Navigator](https://reactnavigation.org/docs/drawer-navigator#installation): For the application use a custom drawer-navigation · version `6.x`
+* [drawer-navigator](https://reactnavigation.org/docs/drawer-navigator#installation): For the application use a custom drawer-navigation · version `6.x`
 ```
 yarn add @react-navigation/drawer
 ```
 
-* [API-Harry-Potter-ING](https://hp-api.herokuapp.com/): Harry Potter API containing students, teachers and houses `ingles`
-* [API-Harry-Potter-ES](https://harry-potter-api-production.up.railway.app/): Harry Potter API containing spells, information, characters and books `español`
+* [react-native-linear-gradient](https://yarnpkg.com/package/react-native-linear-gradient): For the application use a custom drawer-navigation · version `6.x`
+```
+yarn add react-native-linear-gradient
+```
+
+* [react-native-paper](https://callstack.github.io/react-native-paper/): For the application use a custom drawer-navigation · version `6.x`
+```
+yarn add react-native-paper
+```
+```
+yarn add react-native-vector-icons
+react-native link react-native-vector-icons
+```
+Expo: To get smaller bundle size by excluding modules you don't use, you can use our optional babel plugin. The plugin automatically rewrites the import statements so that only the modules you use are imported instead of the whole library. Add react-native-paper/babel to the plugins section in your babel.config.js for production environment. It should look like this:
+
+```
+module.exports = {
+  presets: ['module:metro-react-native-babel-preset'],
+  env: {
+    production: {
+      plugins: ['react-native-paper/babel'],
+    },
+  },
+};
+```
+#### Usage
+```
+import { Provider as PaperProvider } from 'react-native-paper';
+```
+
+* [API-Harry-Potter-ENG](https://hp-api.herokuapp.com/): Harry Potter API containing students, teachers and houses `ingles`
+* [API-Harry-Potter-SP](https://harry-potter-api-production.up.railway.app/): Harry Potter API containing spells, information, characters and books `español`
 
 
